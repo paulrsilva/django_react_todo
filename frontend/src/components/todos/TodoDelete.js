@@ -25,7 +25,7 @@ class TodoDelete extends Component {
           onClick={() => this.props.deleteTodo(id)}
           className='ui negative button'
         >
-          Delete
+          Apagar
         </button>
         <Link to='/' className='ui button'>
           Cancel

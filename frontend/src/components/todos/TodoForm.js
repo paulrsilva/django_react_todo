@@ -19,6 +19,7 @@ class TodoForm extends Component {
   };
 
   render() {
+    const btnText = `${this.props.initialValues ? 'Atualizar' : 'Adicionar'}`; // added
     return (
       <div className='ui segment'>
         <form
@@ -26,7 +27,7 @@ class TodoForm extends Component {
           className='ui form error'
         >
           <Field name='task' component={this.renderField} label='Tarefa' />
-          <button className='ui primary button'>Adicionar</button>
+          <button className='ui primary button'>{btnText}</button>
         </form>
       </div>
     );

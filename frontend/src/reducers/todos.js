@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { GET_TODOS, ADD_TODO, GET_TODO, DELETE_TODO } from '../actions/types';
+import {GET_TODOS, ADD_TODO, GET_TODO, DELETE_TODO, EDIT_TODO} from '../actions/types';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -16,6 +16,11 @@ export default (state = {}, action) => {
     case GET_TODO:
     case DELETE_TODO:
       return _.omit(state, action.payload);
+    case EDIT_TODO:
+      return {
+        ...state,
+        [action.payload.id]: action.payload
+      };
     default:
       return state;
   }

@@ -5,13 +5,12 @@ import ReactDOM from 'react-dom';
 import {Router, Route, Switch} from 'react-router-dom'
 import history from "../history";
 import TodoDelete from "./todos/TodoDelete";
+import TodoEdit from "./todos/TodoEdit";
 
 import Header from "./layout/Header";
 import Dashboard from "./todos/Dashboard";
 import { Provider } from 'react-redux';
 import store from "../store";
-
-
 
 class App extends Component {
   render() {
@@ -19,7 +18,11 @@ class App extends Component {
       <Provider store={store}>
           <Router history={history}>
             <Header/>
-            <Dashboard />
+              <Switch>
+                <Route exact path='/' component={Dashboard} />
+                <Route exact path='/delete/:id' component={TodoDelete} />
+                <Route exact path='/edit/:id' component={TodoEdit} />
+              </Switch>
           </Router>
       </Provider>
     );
