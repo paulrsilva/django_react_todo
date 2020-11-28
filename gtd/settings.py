@@ -132,7 +132,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_RENDERER_CLASSES': (
     #     'rest_framework.renderers.JSONRenderer',
     # ),
-    'DATETIME_FORMAT': "%m/%d/%Y %H:%M:%S",
+    'DATETIME_FORMAT': "%d/%m/%Y %H:%M:%S",
 }
 
 # Internationalization

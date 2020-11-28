@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 from .serializers import TodoSerializer
 from todos.models import Todo
-import json
+from datetime import datetime
 
 class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
@@ -33,5 +33,8 @@ class TodoViewSet(viewsets.ModelViewSet):
             todo.save()
 
         list_queryset = (list(self.queryset.values()))
-        print(list_queryset)
+
+        for item in list_queryset:
+            item['created_at'] = item['created_at'].strftime("%d/%m/%Y %H:%M:%S")
+
         return Response(list_queryset)

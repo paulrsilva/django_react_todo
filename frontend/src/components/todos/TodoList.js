@@ -29,13 +29,16 @@ class TodoList extends Component {
                   </Link>
                 </div>
 
-                <i className='large calendar outline middle aligned icon' />
+                {/*<i className='large calendar outline middle aligned icon' />*/}
+
+                <i className={ todo.done ? 'large check circle outline green icon middle aligned icon': 'large calendar outline middle aligned icon'} />
+
                 <div
+                    onClick={e => toggleTodo(this.props.toggleTodo(todo.id))}
                     className='content'
+
                     style={{textDecoration: todo.done ? 'line-through' : null }} >
-                  <Link to={`/toggle/${todo.id}`} className='header'>
                     {todo.task}
-                  </Link>
                   <div className='description'>{todo.created_at}</div>
                 </div>
               </div>
