@@ -6,6 +6,7 @@ import {Router, Route, Switch} from 'react-router-dom'
 import history from "../history";
 import TodoDelete from "./todos/TodoDelete";
 import TodoEdit from "./todos/TodoEdit";
+import TodoToggle from "./todos/TodoToggle";
 
 import Header from "./layout/Header";
 import Dashboard from "./todos/Dashboard";
@@ -22,6 +23,7 @@ class App extends Component {
                 <Route exact path='/' component={Dashboard} />
                 <Route exact path='/delete/:id' component={TodoDelete} />
                 <Route exact path='/edit/:id' component={TodoEdit} />
+                <Route exact path='/toggle/:id' component={TodoToggle} />
               </Switch>
           </Router>
       </Provider>

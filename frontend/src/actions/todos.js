@@ -1,8 +1,17 @@
 import axios from 'axios';
 import {reset} from "redux-form";
 import history from "../history";
-import { GET_TODOS,ADD_TODO, GET_TODO, DELETE_TODO, EDIT_TODO } from './types';
+import { GET_TODOS,ADD_TODO, GET_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_TODO } from './types';
 
+// TOOGLE TODO
+export const toggleTodo = id => async dispatch => {
+  const res = await axios.post('/api/todos/toggle/', {id:id});
+  dispatch({
+      type: TOGGLE_TODO,
+      payload: res.data
+  });
+  // history.push('/');
+}
 
 // EDIT TODO
 export const editTodo = (id, formValues) => async dispatch => {
@@ -15,7 +24,7 @@ export const editTodo = (id, formValues) => async dispatch => {
 };
 
 // GET TODO
-export const getTodo = id => async dispatch => { // added
+export const getTodo = id => async dispatch => {
   const res = await axios.get(`/api/todos/${id}/`);
   dispatch({
     type: GET_TODO,
@@ -24,7 +33,7 @@ export const getTodo = id => async dispatch => { // added
 };
 
 // DELETE TODO
-export const deleteTodo = id => async dispatch => { // added
+export const deleteTodo = id => async dispatch => {
   await axios.delete(`/api/todos/${id}/`);
   dispatch({
     type: DELETE_TODO,

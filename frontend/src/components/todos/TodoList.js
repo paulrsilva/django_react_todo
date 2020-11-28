@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {getTodos, deleteTodo} from "../../actions/todos";
+import {getTodos, deleteTodo, toggleTodo} from "../../actions/todos";
 
 class TodoList extends Component {
   componentDidMount() {
@@ -30,8 +30,10 @@ class TodoList extends Component {
                 </div>
 
                 <i className='large calendar outline middle aligned icon' />
-                <div className='content'>
-                  <Link to={`/edit/${todo.id}`} className='header'>
+                <div
+                    className='content'
+                    style={{textDecoration: todo.done ? 'line-through' : null }} >
+                  <Link to={`/toggle/${todo.id}`} className='header'>
                     {todo.task}
                   </Link>
                   <div className='description'>{todo.created_at}</div>
@@ -49,5 +51,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getTodos, deleteTodo }
+    { getTodos, deleteTodo, toggleTodo }
 )(TodoList);
