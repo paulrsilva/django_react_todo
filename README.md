@@ -13,8 +13,11 @@ The project uses the Aplication Django format. The frontend react stuff is in th
 ## To install
 
 ### Database
-1. I'm using a mysql in the project. Please change the database and authentication in <code>gtd/settings.py</code>
+This project is using the default qslite3 database. To change it:
+
+1. Change the database and authentication at <code>gtd/settings.py</code>
 1. Create a database with the name you have setted in _DATABASES_ name.
+1. make the migrate and migrations
 
 
 ### Python
