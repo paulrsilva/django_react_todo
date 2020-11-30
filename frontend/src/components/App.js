@@ -13,17 +13,30 @@ import Dashboard from "./todos/Dashboard";
 import { Provider } from 'react-redux';
 import store from "../store";
 
+import LoginForm from './auth/LoginForm'; // Login
+import PrivateRoute from './common/PrivateRoute'; // Login
+import { loadUser } from '../actions/auth'; // Login
+
+import RegisterForm from "./auth/RegisterForm";
+
 class App extends Component {
+
+  // Login
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   render() {
     return (
       <Provider store={store}>
           <Router history={history}>
             <Header/>
               <Switch>
-                <Route exact path='/' component={Dashboard} />
+                <PrivateRoute exact path='/' component={Dashboard} />
                 <Route exact path='/delete/:id' component={TodoDelete} />
                 <Route exact path='/edit/:id' component={TodoEdit} />
-                {/*<Route exact path='/toggle/:id' component={TodoToggle} />*/}
+                <Route exact path='/register' component={RegisterForm} />
+                <Route exact path='/login' component={LoginForm} />
               </Switch>
           </Router>
       </Provider>

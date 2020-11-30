@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.decorators import action, api_view
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from rest_framework.response import Response
@@ -8,9 +8,16 @@ from todos.models import Todo
 from datetime import datetime
 
 class TodoViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
+    # queryset = Todo.objects.all()
     serializer_class = TodoSerializer
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return self.request.user.todos.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
     @action(methods=['post','get'], detail=False)
     def toggle(self, request, *args, **kwargs):

@@ -1,0 +1,23 @@
+POST http://127.0.0.1:8000/api/auth/register
+Content-Type: application/json
+
+# send a request to register the user
+{
+    "username": "Test4",
+    "email": "teste4@neoplace.com.br",
+    "password": "Neoplace"
+}
+
+###
+
+#Registering another user
+
+POST http://127.0.0.1:8000/api/auth/register
+Content-Type: application/json
+
+# send a request to register the user
+{
+    "username": "Test6",
+    "email": "teste6@neoplace.com.br",
+    "password": "Neoplace"
+}

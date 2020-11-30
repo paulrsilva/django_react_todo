@@ -1,0 +1,10 @@
+POST http://127.0.0.1:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "Paul",
+    "password": "GiPaul19"
+}
+
+<> 2020-11-29T035439.200.json
+<> 2020-11-29T035424.400.json

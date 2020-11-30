@@ -1,0 +1,9 @@
+# Send Request
+POST http://127.0.0.1:8000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "Teste2",
+    "email": "teste2@neoplace.com.br",
+    "password": "1234"
+}

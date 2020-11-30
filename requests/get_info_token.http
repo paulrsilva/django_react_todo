@@ -1,0 +1,4 @@
+GET http://127.0.0.1:8000/api/auth/user
+Authorization: Token 7514738869ec9ccf0be079926d0465d8ecd5bd72aa949bb673dc2d74ce930407
+
+<> 2020-11-29T034156.200.json

@@ -27,10 +27,6 @@ export default (state = {}, action) => {
         ..._.mapKeys(action.payload, 'id')
       };
 
-      // return {
-      //   ...state,
-      //   [action.payload.id]: action.payload
-      // };
     default:
       return state;
   }
