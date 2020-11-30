@@ -6,7 +6,8 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  TOGGLE_TODO
 } from '../actions/types';
 
 const initialState = {
@@ -23,6 +24,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: true
       };
+    case TOGGLE_TODO:
     case USER_LOADED:
       return {
         ...state,

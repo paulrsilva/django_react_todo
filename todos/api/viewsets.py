@@ -39,7 +39,7 @@ class TodoViewSet(viewsets.ModelViewSet):
                 todo.done=True
             todo.save()
 
-        list_queryset = (list(self.queryset.values()))
+        list_queryset = (list(self.request.user.todos.all().values()))
 
         for item in list_queryset:
             item['created_at'] = item['created_at'].strftime("%d/%m/%Y %H:%M:%S")

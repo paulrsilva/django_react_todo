@@ -12,7 +12,7 @@ export const toggleTodo = id => async (dispatch, getState) => {
       type: TOGGLE_TODO,
       payload: res.data
   });
-  // history.push('/');
+  history.push('/');
 }
 
 // EDIT TODO
