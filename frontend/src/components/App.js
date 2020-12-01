@@ -39,7 +39,7 @@ class App extends Component {
                 <Route exact path='/edit/:id' component={TodoEdit} />
                 <Route exact path='/register' component={RegisterForm} />
                 <Route exact path='/login' component={LoginForm} />
-                <Route exact path='/projetos' component={TodoProjects} />
+                <PrivateRoute exact path='/projetos' component={TodoProjects} />
                 <Route path='/contextos' component={TodoContexts} />
               </Switch>
           </Router>
