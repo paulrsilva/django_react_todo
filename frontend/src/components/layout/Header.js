@@ -49,7 +49,10 @@ class Header extends Component {
             <Link to='/contextos' className='item'>
                 Contextos
             </Link>
-            <a className='item'>Forecast</a>
+            <Link to='/forecast' className='item'>
+                Forecast
+            </Link>
+            <a className='item'>Info</a>
            {isAuthenticated ? userLinks : guestLinks}
           </div>
         );

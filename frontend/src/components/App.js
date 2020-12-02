@@ -9,6 +9,7 @@ import TodoEdit from "./todos/TodoEdit";
 // import TodoToggle from "./todos/TodoToggle";
 import TodoProjects from "./todos/TodoProjects";
 import TodoContexts from "./todos/TodoContexts";
+import Forecast from "./forecast/Forecast";
 
 import Header from "./layout/Header";
 import Dashboard from "./todos/Dashboard";
@@ -41,6 +42,7 @@ class App extends Component {
                 <Route exact path='/login' component={LoginForm} />
                 <PrivateRoute exact path='/projetos' component={TodoProjects} />
                 <Route path='/contextos' component={TodoContexts} />
+                <Route path='/forecast' component={Forecast} />
               </Switch>
           </Router>
       </Provider>
